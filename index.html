@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moj prvi web</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="top">Neki naslov</h1>
+
+    <form action="#">
+
+        <label for="name">Name</label>
+        <input type="text" name="name">
+
+        <br><br>
+
+        <label for="lastname">Last name</label>
+        <input type="text" name="lastname">
+
+        <br><br>
+
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label>
+
+        <br><br>
+
+        <p>Choose your favorite Web language:</p>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label>
+
+        <br><br>
+
+        <label for="cars">Choose a car:</label>
+        <select id="cars" name="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+
+        <br><br>
+
+        <p>Leave your comment:</p>
+        <textarea name="comment"></textarea>
+
+        <br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+
+
+    <a href="https://www.w3schools.com">Posjeti W3Schools!</a>
+
+    <a href="app.html">Unutarnja poveznica</a>
+
+    <a href="#top">Odi na vrh</a>
+
+
+    <ul>
+        <li>kava</li>
+        <li>mlijeko</li>
+    </ul>
+
+    <ol type="a">
+        <li>kava</li>
+        <li>mlijeko</li>
+        <li>kruh</li>
+        <li>jaja</li>
+    </ol>
+
+    <dl>
+        <dt>kava</dt>
+        <dd>- crni vruci napitak</dd>
+        <dt>mlijeko</dt>
+        <dd>- bijeli hladni napitak</dd>
+    </dl>
+
+    <table>
+        <tr>
+            <th>Grad</th>
+            <th colspan="2">Postanski broj</th>
+        </tr>
+        <tr>
+            <td>Zagreb</td>
+            <td>10000</td>
+            <td>10100</td>
+        </tr>
+        <tr>
+            <td>Križevci</td>
+            <td>48260</td>
+            <td>48261</td>
+        </tr>
+    </table>
+</body>
+</html>
