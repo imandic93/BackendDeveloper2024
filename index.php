@@ -1,6 +1,9 @@
 <?php
 
-include_once('echo.php');
-include_once('echo.php');
+$true = true;
+$false = false;
 
-echo 'Kraj programa!';
+$age = 20;
+$canDrive = $age >= 18;
+
+var_dump($true, $false, $canDrive);
