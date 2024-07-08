@@ -1,9 +1,7 @@
 <?php
 
-$true = true;
-$false = false;
+$a = 5;
+$b = &$a;
+$b = 10;
 
-$age = 20;
-$canDrive = $age >= 18;
-
-var_dump($true, $false, $canDrive);
+var_dump($a, $b);
