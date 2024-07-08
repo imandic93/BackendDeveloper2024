@@ -1,7 +1,7 @@
 <?php
 
-$a = 5;
-$b = &$a;
-$b = 10;
+$ime = 'Ivan';
+$prezime = 'Mandic';
+$imePrezime = $ime . ' ' . $prezime;
 
-var_dump($a, $b);
+var_dump($imePrezime);
