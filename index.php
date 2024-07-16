@@ -1,29 +1,44 @@
 <?php
 
-$array = [1, 2, 3];
-$array2 = [
-    'name' => 'Ivan',
-    'age' => 31,
-    'skills' => ['PHP', 'MySQL', 'Linux']
-];
-$array3 = [4, 5, 6];
+$food = 'orange';
 
-$array[] = 4;
-$array2['gender'] = 'm';
+$return_value = match ($food) {
+    'apple' => 'This food is an apple',
+    'bar' => 'This food is a bar',
+    'cake' => 'This food is a cake',
+    default => 'Unknown food'
+};
 
-$originalArray = $array;
-krsort($array);
+var_dump($return_value);
 
-['name' => $name, 'age' => $age, 'skills' => $skills] = $array2;
 
-var_dump(
-    $array, 
-    $originalArray,
-    array_keys($array2),
-    array_values($array2),
-    count($array),
-    array_merge($originalArray, $array3),
-    $name,
-    $age,
-    $skills
-);
+$age = 20;
+
+switch ($age) {
+    case 18:
+        echo "Punoljetni ste! Smijete pregledavati naše proizvode!" . PHP_EOL;
+        break;
+
+    case 17:
+        echo 'Vratite se za godinu dana!' . PHP_EOL;
+        break;
+
+    case 16:
+    case 15:
+        echo 'Vratite za par godina!' . PHP_EOL;
+        break;
+    
+    default:
+        echo "Nemate dovoljno godina za prisupiti nasem webu!" . PHP_EOL;
+        break;
+}
+
+if ($age >= 18) {
+    echo "Punoljetni ste! Smijete pregledavati naše proizvode!" . PHP_EOL;
+} elseif ($age === 17) {
+    echo 'Vratite se za godinu dana!' . PHP_EOL;
+} elseif ($age >= 15) {
+    echo 'Vratite za par godina!' . PHP_EOL;
+} else {
+    echo "Nemate dovoljno godina za prisupiti nasem webu!" . PHP_EOL;
+}
