@@ -1,40 +1,27 @@
 <?php
 
-function makeyogurt(
-    $container = "bowl", 
-    $flavour = "raspberry", 
-    $style = "Greek",
-)
+function getSum(...$numbers)
 {
-    return "Making a $container of $flavour $style yogurt.\n";
+    static $sum = 0;
+
+    foreach($numbers as $number){
+        $sum += $number;
+    }
+
+    return $sum;
 }
 
-echo makeyogurt(flavour: 'apple');
+$function = 'getSum';
 
+echo $function(10,20,30,40,50) . PHP_EOL;
+echo $function(10,20,30,40,50) . PHP_EOL;
+echo $function(10,20,30,40,50) . PHP_EOL;
 
-// function makecoffee($type = "cappuccino")
-// {
-//     return "Making a cup of $type.\n";
-// }
-// echo makecoffee() . PHP_EOL;
-// echo makecoffee(null) . PHP_EOL;
-// echo makecoffee("espresso") . PHP_EOL;
+$greeting = 'Hello world!';
 
-// function getSum(&$sum, ...$numbers)
-// {
-//     foreach ($numbers as $number) {
-//         $sum += $number;
-//     }
-// }
+function sayHello()
+{
+    echo $GLOBALS['greeting'] . PHP_EOL; 
+}
 
-// function printSum(int $sum)
-// {
-//     echo $sum . PHP_EOL;
-// }
-
-// $sum = 0;
-
-// getSum($sum, 100, 200, 300, 400, 500);
-// getSum($sum, 100, 10000);
-
-// printSum($sum);
+sayHello();
