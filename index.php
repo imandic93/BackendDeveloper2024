@@ -1,27 +1,20 @@
 <?php
 
-function getSum(...$numbers)
-{
-    static $sum = 0;
+$booksJson = file_get_contents('knjige.json');
 
-    foreach($numbers as $number){
-        $sum += $number;
-    }
+$books = json_decode($booksJson, true);
 
-    return $sum;
+$books[] = [
+    'title' => 'One Hundred Years of Solitude',
+    'author' => 'Gabriel Garcia Marquez',
+    'pages' =>  457,
+    'available' =>  true
+];
+
+$booksJson = json_encode($books);
+
+if (!file_put_contents('knjige.json', $booksJson)) {
+    echo 'Failed storing JSON to file' . PHP_EOL;
+} else {
+    echo 'Stored JSON to file!' . PHP_EOL;
 }
-
-$function = 'getSum';
-
-echo $function(10,20,30,40,50) . PHP_EOL;
-echo $function(10,20,30,40,50) . PHP_EOL;
-echo $function(10,20,30,40,50) . PHP_EOL;
-
-$greeting = 'Hello world!';
-
-function sayHello()
-{
-    echo $GLOBALS['greeting'] . PHP_EOL; 
-}
-
-sayHello();
