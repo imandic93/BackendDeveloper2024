@@ -1,10 +1,13 @@
-<html>
-    <body>
-        <form action="app.php" method="post" enctype="multipart/form-data">
-            <label for="file">File</label>
-            <input type="file" name="file" />
-            <br><br>
-            <input type="submit" value="Send" />
-        </form>
-    </body>
-</html>
+<?php
+
+session_start();
+// $_SESSION['foo'] = 'bar';
+
+var_dump($_SESSION);
+
+// var_dump($_COOKIE);
+
+// // $username = 'ivan.mandic@predavaci.algebra.hr';
+// // $cookieName = 'user';
+
+// // setcookie($cookieName, $username, time() - 3600);
