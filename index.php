@@ -1,13 +1,18 @@
 <?php
 
-session_start();
-// $_SESSION['foo'] = 'bar';
+require './app/osoba.php';
+require './app/polaznik.php';
+require './app/predavac.php';
 
-var_dump($_SESSION);
+$polaznik = new Polaznik();
+$polaznik->setIme('ivan');
 
-// var_dump($_COOKIE);
+$polaznik2 = new Polaznik();
 
-// // $username = 'ivan.mandic@predavaci.algebra.hr';
-// // $cookieName = 'user';
+$predavac = new Predavac();
+$predavac->setIme('Ivan');
+$predavac->setPrezime('Mandic');
 
-// // setcookie($cookieName, $username, time() - 3600);
+echo $polaznik->sayHello(), "\n";
+echo $polaznik2->sayHello(), "\n";
+echo $predavac->sayHello(), "\n";
