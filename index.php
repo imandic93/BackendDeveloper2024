@@ -1,18 +1,13 @@
 <?php
 
-require './app/osoba.php';
-require './app/polaznik.php';
-require './app/predavac.php';
+require './app/person.php';
+require './app/student.php';
+require './app/teacher.php';
+require './app/group.php';
 
-$polaznik = new Polaznik();
-$polaznik->setIme('ivan');
+$student = new Student('Marko', 'Maric');
+$student2 = new Student('Ana', 'Anic');
+$student3 = new Student('Iva', 'Ivic');
 
-$polaznik2 = new Polaznik();
-
-$predavac = new Predavac();
-$predavac->setIme('Ivan');
-$predavac->setPrezime('Mandic');
-
-echo $polaznik->sayHello(), "\n";
-echo $polaznik2->sayHello(), "\n";
-echo $predavac->sayHello(), "\n";
+$group = new Group(students: [$student, $student2, $student3]);
+$group->displayInfo();
