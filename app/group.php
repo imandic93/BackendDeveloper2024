@@ -2,15 +2,19 @@
 
 class Group
 {
-    public function __construct(private Teacher $teacher = new Teacher('Ivan', 'Mandic'), private array $students = [])
-    {}
+    private array $members = [];
+
+    public function addMember(Member $member)
+    {
+        echo $member->displayJoinedMessage(), "\n";
+
+        $this->members[] = $member;
+    }
 
     public function displayInfo()
     {
-        echo "Nastavnik ove grupe je {$this->teacher->getFullName()}", "\n";
+        $memberCount = count($this->members);
 
-        $studentCount = count($this->students);
-
-        echo "Broj polaznika je $studentCount";
+        echo "Broj sudionika u sobi je $memberCount", "\n";
     }
 }

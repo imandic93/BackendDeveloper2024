@@ -1,9 +1,9 @@
 <?php
 
-class Teacher extends Person
+class Guest extends Person
 {
     protected function getRole(): string
     {
-        return 'nastavnik';
+        return 'gost';
     }
 }
