@@ -1,10 +1,12 @@
 <?php
 
+namespace App;
+
 class Group
 {
     private array $members = [];
 
-    public function addMember(Member $member)
+    public function addMember(\Member $member)
     {
         echo $member->displayJoinedMessage(), "\n";
 
