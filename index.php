@@ -3,7 +3,6 @@
 use App\DiscordBot;
 use App\Group;
 use App\Guest;
-use App\People\Group as PeopleGroup;
 use App\Student;
 use App\Teacher;
 
@@ -17,13 +16,18 @@ $guest = new Guest('gost', 'gost');
 $discordBot = new DiscordBot();
 
 $group = new Group();
-$group->addMember($teacher);
-$group->addMember($student);
-$group->addMember($student2);
-$group->addMember($student3);
-$group->addMember($guest);
-$group->addMember($discordBot);
-$group->displayInfo();
 
-$groupOfPeople = new PeopleGroup([$teacher, $student, $student]);
-echo "Broj ljudi u grupi je: {$groupOfPeople->getPeopleCount()} \n";
+try {
+    $group->addMember($teacher);
+    $group->addMember($student);
+    $group->addMember($student2);
+    $group->addMember($student3);
+    $group->addMember($guest);
+    $group->addMember($discordBot);
+} catch (Exception) {
+    echo "Previse ljudi se pokusalo spojiti!", "\n";
+} finally {
+    echo "Nastavljam program!", "\n";
+}
+
+$group->displayInfo();

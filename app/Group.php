@@ -2,23 +2,33 @@
 
 namespace App;
 
+use App\Exception\TooManyMembersException;
 use App\Interface\Member;
 
 class Group
 {
+    private const int MAX_SIZE = 5;
+
     private array $members = [];
 
-    public function addMember(Member $member)
+    public function addMember(Member $member): void
     {
+        if ($this->getMemberCount() === self::MAX_SIZE) {
+            throw new TooManyMembersException('Dosegnut maksimalan broj clanova!');
+        }
+
         echo $member->displayJoinedMessage(), "\n";
 
         $this->members[] = $member;
     }
 
-    public function displayInfo()
+    public function displayInfo(): void
     {
-        $memberCount = count($this->members);
+        echo "Broj sudionika u sobi je {$this->getMemberCount()}", "\n";
+    }
 
-        echo "Broj sudionika u sobi je $memberCount", "\n";
+    public function getMemberCount(): int
+    {
+        return count($this->members);
     }
 }
