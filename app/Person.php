@@ -1,5 +1,9 @@
 <?php
 
+namespace App;
+
+use App\Interface\Member;
+
 abstract class Person implements Member
 {
     public function __construct(protected string $name, protected string $surname)

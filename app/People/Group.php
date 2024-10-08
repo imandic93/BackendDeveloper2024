@@ -1,6 +1,6 @@
 <?php
 
-namespace People;
+namespace App\People;
 
 class Group
 {
