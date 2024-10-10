@@ -1,33 +1,48 @@
 <?php
 
-use App\DiscordBot;
+use App\BulletinBoard;
+use App\Enum\MemberType;
+use App\Factory\MemberFactory;
 use App\Group;
-use App\Guest;
-use App\Student;
-use App\Teacher;
 
 require './vendor/autoload.php';
 
-$teacher = new Teacher('Ivan', 'Mandic');
-$student = new Student('Marko', 'Maric');
-$student2 = new Student('Ana', 'Anic');
-$student3 = new Student('Iva', 'Ivic');
-$guest = new Guest('gost', 'gost');
-$discordBot = new DiscordBot();
+$memberFactory = new MemberFactory();
+
+$board = BulletinBoard::getInstance();
+$board->addNotification('Za grupu ABC je nastava otkazana iduci tjedan');
+$board->addNotification('Grupa 123 pocinje od 17:00 11.10.2024.');
 
 $group = new Group();
 
 try {
-    $group->addMember($teacher);
-    $group->addMember($student);
-    $group->addMember($student2);
-    $group->addMember($student3);
-    $group->addMember($guest);
-    $group->addMember($discordBot);
+    $group->addMember(
+        $memberFactory->createMember(MemberType::Teacher, 'Ivan', 'Mandic')
+    );
+    $group->addMember(
+        $memberFactory->createMember(MemberType::Student, 'Marko', 'Maric')
+    );
+    $group->addMember(
+        $memberFactory->createMember(MemberType::Student, 'Ana', 'Anic')
+    );
+    $group->addMember(
+        $memberFactory->createMember(MemberType::Student, 'Iva', 'Ivic')
+    );
+    $group->addMember($memberFactory->createMember());
+    $group->addMember($memberFactory->createMember(MemberType::DiscordBot));
 } catch (Exception) {
     echo "Previse ljudi se pokusalo spojiti!", "\n";
-} finally {
-    echo "Nastavljam program!", "\n";
 }
 
+echo "\n\n\n";
+
 $group->displayInfo();
+
+$board = BulletinBoard::getInstance();
+$board = BulletinBoard::getInstance();
+$board = BulletinBoard::getInstance();
+$board = BulletinBoard::getInstance();
+
+echo "\n\n\n";
+
+$board->getNotifications();

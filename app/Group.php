@@ -7,7 +7,7 @@ use App\Interface\Member;
 
 class Group
 {
-    private const int MAX_SIZE = 5;
+    private const int MAX_SIZE = 10;
 
     private array $members = [];
 

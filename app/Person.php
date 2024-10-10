@@ -26,6 +26,6 @@ abstract class Person implements Member
 
     public function displayJoinedMessage(): string
     {
-        return ucfirst("{$this->getRole()} {$this->getFullName()} se spojio u sobu!");
+        return "[{$this->getRole()}] {$this->getFullName()} se spojio u sobu!";
     }
 }
