@@ -4,7 +4,7 @@ namespace App;
 
 use App\Interface\Member;
 
-abstract class Person implements Member
+abstract class Person implements Member, \SplObserver
 {
     public function __construct(protected string $name, protected string $surname)
     {}
@@ -27,5 +27,10 @@ abstract class Person implements Member
     public function displayJoinedMessage(): string
     {
         return "[{$this->getRole()}] {$this->getFullName()} se spojio u sobu!";
+    }
+
+    public function update(\SplSubject $subject): void
+    {
+        echo "[{$this->getRole()}][{$this->getFullName()}] je procitao obavijest: {$subject->getLastNotification()}", "\n";
     }
 }
