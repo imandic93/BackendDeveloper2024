@@ -2,7 +2,9 @@
 
 namespace App\Interface;
 
-interface Member
+use SplObserver;
+
+interface Member extends SplObserver
 {
     public function displayJoinedMessage(): string;
 }
