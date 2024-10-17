@@ -9,21 +9,28 @@ $config = require('./config/database.php');
 $connection = new PDO(
     "mysql:dbname={$config['database']};host=localhost",
     $config['username'], 
-    $config['password']
+    $config['password'],
+    [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]
 );
 
-var_dump($connection->getAvailableDrivers());
+$connection->beginTransaction();
 
-// $connection->begin_transaction();
+$statement = $connection->prepare(
+    "INSERT INTO zanrovi (naziv) VALUES (:naziv)"
+);
+$statement->bindParam(':naziv', 'Komedija');
+$statement->execute();
 
-// $statement = $connection->prepare("INSERT INTO zanrovi (naziv) VALUES (?)");
-// $statement->bind_param('s', $argv[1]);
-// $statement->execute();
+$connection->commit();
 
-// $connection->commit();
+$result = $connection->query('SELECT * FROM zanrovi');
 
-// $result = $connection->query('SELECT * FROM zanrovi');
-
-// while ($row = $result->fetch_object(Genre::class)) {
-//     echo $row->getName(), "\n";
+// foreach ($result as $row) {
+//     var_dump($row);
 // }
+
+while ($row = $result->fetchObject(Genre::class)) {
+    echo $row->getName(), "\n";
+}

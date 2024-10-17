@@ -10,6 +10,6 @@ class Genre
 
     public function getName()
     {
-        return $this->naziv;
+        return "[ID:$this->ID] $this->naziv";
     }
 }
