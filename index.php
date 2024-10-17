@@ -6,16 +6,21 @@ require './vendor/autoload.php';
 
 $config = require('./config/database.php');
 
-$connection = new mysqli(username: $config['username'], password: $config['password'], database: $config['database']);
-$connection->options(MYSQLI_OPT_INT_AND_FLOAT_NATIVE, true);
+$connection = new PDO(
+    "mysql:dbname={$config['database']};host=localhost",
+    $config['username'], 
+    $config['password']
+);
 
-$connection->begin_transaction();
+var_dump($connection->getAvailableDrivers());
 
-$statement = $connection->prepare("INSERT INTO zanrovi (naziv) VALUES (?)");
-$statement->bind_param('s', $argv[1]);
-$statement->execute();
+// $connection->begin_transaction();
 
-$connection->commit();
+// $statement = $connection->prepare("INSERT INTO zanrovi (naziv) VALUES (?)");
+// $statement->bind_param('s', $argv[1]);
+// $statement->execute();
+
+// $connection->commit();
 
 // $result = $connection->query('SELECT * FROM zanrovi');
 
