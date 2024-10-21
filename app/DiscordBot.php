@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Interface\Member;
-
-class DiscordBot implements Member
+class DiscordBot
 {
     public function displayJoinedMessage(): string
     {

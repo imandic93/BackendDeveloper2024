@@ -27,10 +27,6 @@ $connection->commit();
 
 $result = $connection->query('SELECT * FROM zanrovi');
 
-// foreach ($result as $row) {
-//     var_dump($row);
-// }
-
 while ($row = $result->fetchObject(Genre::class)) {
     echo $row->getName(), "\n";
 }

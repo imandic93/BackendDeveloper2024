@@ -2,3 +2,5 @@ vendor/
 .vscode/
 uploads/
 config/
+coverage/
+.phpunit.cache/
