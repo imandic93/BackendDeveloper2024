@@ -9,13 +9,21 @@ class Application
     public function run()
     {
         $router = new Router();
+        $response = '';
 
         try {
-            echo $router->resolve();
+            $response = $router->resolve();
         } catch (RouteNotFoundException) {
             http_response_code(404);
 
-            echo '<h1>Ruta nije pronađena!</h1>';
+            $response = '<h1>Ruta nije pronađena!</h1>';
+        } finally {
+            if (is_array($response)) {
+                $response = json_encode($response);
+                header('Content-Type: application/json');
+            }
+
+            echo $response;
         }
     }
 }

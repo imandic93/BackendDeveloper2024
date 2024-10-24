@@ -1,5 +1,7 @@
 <?php
 
+use App\Controller\MovieController;
 use System\Router;
 
-Router::get('/movies', function() {return 'Foo';});
+Router::get('/users', function() {return 'Foo';});
+Router::get('/movies', [MovieController::class, 'getAll']);
