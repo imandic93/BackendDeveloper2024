@@ -2,14 +2,12 @@
 
 namespace App\Controller;
 
+use App\Model\Genre;
+
 class MovieController
 {
     public function getAll()
     {
-        return [
-            'Vlak u snijegu',
-            'Titanic',
-            'LOTR'
-        ];
+        return (new Genre())->findAll();
     }
 }
