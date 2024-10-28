@@ -2,6 +2,7 @@
 
 namespace System;
 
+use Symfony\Component\Dotenv\Dotenv;
 use System\Exception\RouteNotFoundException;
 use Throwable;
 
@@ -9,11 +10,12 @@ class Application
 {
     public function run()
     {
-        $databaseConfig = require CONFIG . '/database.php';
+        $dotenv = new Dotenv();
+        $dotenv->loadEnv(ROOT . '/.env');
 
-        define('DB_DSN', $databaseConfig['dsn']);
-        define('DB_USERNAME', $databaseConfig['username']);
-        define('DB_PASSWORD', $databaseConfig['password']);
+        define('DB_DSN', $_ENV['DB_DSN']);
+        define('DB_USERNAME', $_ENV['DB_USERNAME']);
+        define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
 
         $router = new Router();
         $response = '';

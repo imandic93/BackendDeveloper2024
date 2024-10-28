@@ -4,5 +4,8 @@
             "App\\": "app/",
             "System\\": "core/"
         }
+    },
+    "require": {
+        "symfony/dotenv": "^7.1"
     }
 }
