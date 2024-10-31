@@ -10,6 +10,9 @@ class Application
 {
     public function run()
     {
+        define('CONFIG', ROOT . '/config');
+        define('VIEW', ROOT . '/app/View');
+
         $dotenv = new Dotenv();
         $dotenv->loadEnv(ROOT . '/.env');
 
@@ -26,7 +29,7 @@ class Application
             http_response_code(404);
 
             $response = '<h1>Ruta nije pronađena!</h1>';
-        } catch (Throwable) {
+        } catch (Throwable $e) {
             http_response_code(500);
 
             $response = '<h1>Dogodila se greška!</h1>';
