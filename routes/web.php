@@ -1,13 +1,18 @@
 <?php
 
-use App\MovieRepository;
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome');
+
+Route::redirect('/homepage', '/')->name('home');
+
+Route::get('/welcome', function() {
+    return redirect()->route('home');
 });
 
 
-Route::get('/movies', function(MovieRepository $movieRepositoy) {
-    return $movieRepositoy->getMovies();
+Route::controller(MovieController::class)->prefix('admin')->group(function(){
+    Route::any('/movies', 'getMovies');
+    Route::get('/movies/{id}', 'getMovie');
 });

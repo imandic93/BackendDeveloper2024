@@ -17,4 +17,15 @@ class MovieRepository
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getMovie(int $id)
+    {
+        $statement = $this->databaseConnection->prepare(
+            'SELECT * FROM filmovi WHERE id = :id'
+        );
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

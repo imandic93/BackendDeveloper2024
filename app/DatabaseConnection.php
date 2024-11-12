@@ -14,4 +14,9 @@ class DatabaseConnection implements DatabaseConnectionInterface
     {
         return $this->connection->query($query);
     }
+
+    public function prepare(string $query): PDOStatement
+    {
+        return $this->connection->prepare($query);
+    }
 }
