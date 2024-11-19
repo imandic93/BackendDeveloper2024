@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\MovieRepository;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -10,9 +9,9 @@ class GenreController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return ['Horor', 'Drama', 'Komedija'];
+        dd($request->file('file'));
     }
 
     /**
@@ -20,7 +19,7 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->file('file'));
     }
 
     /**
