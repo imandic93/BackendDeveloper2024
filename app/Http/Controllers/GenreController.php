@@ -12,7 +12,7 @@ class GenreController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request->file('file'));
+        return response()->caps('foo');
     }
 
     /**
@@ -28,7 +28,7 @@ class GenreController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return redirect()->action([GenreController::class, 'index']);
     }
 
     /**
