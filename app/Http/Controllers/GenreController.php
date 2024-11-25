@@ -12,7 +12,9 @@ class GenreController extends Controller
      */
     public function index(Request $request)
     {
-        return response()->caps('foo');
+        return view('genres.index', [
+            'genres' => ['Horor', 'Drama', 'Komedija'],
+        ]);
     }
 
     /**
