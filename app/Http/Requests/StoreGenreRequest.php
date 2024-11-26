@@ -22,7 +22,7 @@ class StoreGenreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:25', 'json'],
+            'name' => ['required', 'max:25'],
             'description' => ['min:50']
         ];
     }

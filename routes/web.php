@@ -13,15 +13,9 @@ Route::get('/welcome', function() {
     return redirect()->route('home');
 });
 
-Route::controller(MovieController::class)
-    ->prefix('admin')
-    ->group(function(){
-        Route::any('/movies', 'getMovies');
-        Route::get('/movies/{id}', 'getMovie');
-});
-
-Route::apiResource('genres', GenreController::class)->parameters([
-    'genres' => 'id'
+Route::resources([
+    'genres' => GenreController::class,
+    'movies' => MovieController::class,
 ]);
 // nested resource
 Route::resource('movies.genres', MovieGenreController::class);

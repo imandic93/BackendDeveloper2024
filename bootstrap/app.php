@@ -16,9 +16,6 @@ return Application::configure(basePath: dirname(__DIR__))
             ->appendToGroup('admin', [EnsureTokenIsValid::class])
             ->alias([
                 'admin-token' => EnsureTokenIsValid::class
-            ])
-            ->validateCsrfTokens(except: [
-                'genres',
             ]);
         $middleware->encryptCookies(except: [
                 'Custom cookie',

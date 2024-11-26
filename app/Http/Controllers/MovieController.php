@@ -3,24 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\MovieRepository;
-use Illuminate\Routing\Controllers\HasMiddleware;
 
-class MovieController extends Controller implements HasMiddleware
+class MovieController extends Controller
 {
-    public static function middleware(): array
-    {
-        return [
-            'admin-token:movie',
-        ];
-    }
-
     public function __construct(private MovieRepository $movieRepository)
     {}
 
 
-    public function getMovies()
+    public function index()
     {
-        return $this->movieRepository->getMovies();
+        return view('movies.index', [
+            'movies' => $this->movieRepository->getMovies()
+        ]);
     }
 
     public function getMovie(int $id)
