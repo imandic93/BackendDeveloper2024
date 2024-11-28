@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdministrator(): bool
+    {
+        return str_contains($this->email, '@algebra.hr');
+    }
 }

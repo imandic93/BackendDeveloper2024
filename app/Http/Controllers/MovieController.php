@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use App\MovieRepository;
+use Illuminate\Support\Facades\Gate;
 
 class MovieController extends Controller
 {
@@ -12,13 +14,17 @@ class MovieController extends Controller
 
     public function index()
     {
+        Gate::authorize('index', Movie::class);
+
         return view('movies.index', [
             'movies' => $this->movieRepository->getMovies()
         ]);
     }
 
-    public function getMovie(int $id)
+    public function show(int $id)
     {
+        Gate::authorize('show', Movie::class);
+
         return $this->movieRepository->getMovie($id);
     }
 }
