@@ -2,30 +2,18 @@
 
 namespace App;
 
+use App\Models\Movie;
 use PDO;
 
 class MovieRepository
 {
-    public function __construct(private DatabaseConnectionInterface $databaseConnection)
-    {
-        
-    }
-
     public function getMovies()
     {
-        $statement = $this->databaseConnection->query('SELECT * FROM filmovi');
-
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return Movie::all()->toArray();
     }
 
     public function getMovie(int $id)
     {
-        $statement = $this->databaseConnection->prepare(
-            'SELECT * FROM filmovi WHERE id = :id'
-        );
-        $statement->bindParam(':id', $id);
-        $statement->execute();
 
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
