@@ -20,6 +20,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->encryptCookies(except: [
                 'Custom cookie',
         ]);
+        $middleware->validateCsrfTokens(except: [
+            'genres/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

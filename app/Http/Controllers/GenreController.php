@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGenreRequest;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request)
+    public function index()
     {
+        $genres = Genre::orderBy('name', 'DESC')
+            ->get();
+
         return view('genres.index', [
-            'genres' => ['Horor', 'Drama', 'Komedija'],
+            'genres' => $genres,
         ]);
     }
 
@@ -22,20 +23,23 @@ class GenreController extends Controller
         return view('genres.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreGenreRequest $request)
     {
-        dd($request->validated());
+        $genre = new Genre();
+        $genre->name = $request->name;
+        $genre->save();
+
+        return [
+            'message' => 'Uspjesno spremljen zanr!'
+        ];
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
-        return redirect()->action([GenreController::class, 'index']);
+        return Genre::findOrFail($id);
     }
 
     /**
@@ -51,6 +55,6 @@ class GenreController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Genre::destroy($id);
     }
 }

@@ -1,4 +1,4 @@
-<x-app>
+<x-app-layout>
     <x-slot:title>
         <x-title title="Novi zanr"/>
     </x-slot:title>
@@ -14,4 +14,4 @@
             <div class="error">{{ $message }}</div>
         @enderror
     </form>
-</x-app>
+</x-app-layout>

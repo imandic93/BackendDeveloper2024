@@ -1,9 +1,9 @@
-@extends('layout.app')
+<x-app-layout>
+    <x-slot:title>
+        <x-title title="Zanrovi"/>
+    </x-slot:title>
 
-<x-title title="Zanrovi"/>
-
-@section('content')
     @foreach ($genres as $genre)
-        <p>{{ $genre }}</p>
+        <p>{{ $genre->name }}</p>
     @endforeach
-@endsection
+</x-app-layout>

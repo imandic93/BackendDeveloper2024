@@ -11,7 +11,6 @@ class MovieController extends Controller
     public function __construct(private MovieRepository $movieRepository)
     {}
 
-
     public function index()
     {
         Gate::authorize('index', Movie::class);
@@ -23,6 +22,9 @@ class MovieController extends Controller
 
     public function show(int $id)
     {
+        $movie = Movie::find($id);
+        dd($movie->genres->toArray());
+
         Gate::authorize('show', Movie::class);
 
         return $this->movieRepository->getMovie($id);
