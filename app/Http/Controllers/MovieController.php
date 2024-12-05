@@ -16,17 +16,14 @@ class MovieController extends Controller
         Gate::authorize('index', Movie::class);
 
         return view('movies.index', [
-            'movies' => $this->movieRepository->getMovies()
+            'movies' => Movie::all()->toArray()
         ]);
     }
 
     public function show(int $id)
     {
-        $movie = Movie::find($id);
-        dd($movie->genres->toArray());
-
         Gate::authorize('show', Movie::class);
 
-        return $this->movieRepository->getMovie($id);
+        return Movie::findOrFail($id);
     }
 }

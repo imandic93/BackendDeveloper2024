@@ -9,11 +9,6 @@ class MovieRepository
 {
     public function getMovies()
     {
-        return Movie::all()->toArray();
-    }
-
-    public function getMovie(int $id)
-    {
-
+        return [1,2,3];
     }
 }

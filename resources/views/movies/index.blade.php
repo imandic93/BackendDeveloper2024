@@ -1,7 +1,3 @@
-<x-app-layout>
-    <x-slot:title>
-        <x-title title="Filmovi"/>
-    </x-slot:title>
+<x-title title="Filmovi"/>
 
-    <x-movie-list :$movies/>
-</x-app-layout>
+<x-movie-list :$movies/>
