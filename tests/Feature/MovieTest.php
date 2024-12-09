@@ -30,7 +30,7 @@ class MovieTest extends TestCase
             ->assertStatus(200)
             ->assertExactJson([
                 'name' => $movie->name,
-                'year' => $movie->year,
+                'year' => (int) $movie->year,
                 'id' => $movie->id,
                 'producer' => null,
             ]);
