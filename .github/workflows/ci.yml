@@ -28,6 +28,7 @@ jobs:
 
     - name: Run Tests
       run: |
+        cp .env.example .env
         php artisan key:generate
         php artisan migrate --env=testing
         php artisan test
