@@ -16,6 +16,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          echo $USER
           cd /var/www/html/app
           git pull origin main
           composer install --no-dev --optimize-autoloader --prefer-dist
