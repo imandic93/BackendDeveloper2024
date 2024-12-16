@@ -24,6 +24,6 @@ class MovieController extends Controller
     {
         Gate::authorize('show', Movie::class);
 
-        return Movie::findOrFail($id);
+        return [];
     }
 }
