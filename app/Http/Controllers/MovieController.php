@@ -26,6 +26,6 @@ class MovieController extends Controller
 
         $movie = Movie::findOrFail($id);
 
-        return $movies;
+        return $movie;
     }
 }

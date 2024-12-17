@@ -1,3 +1,3 @@
-<x-title title="Filmovi"/>
+<x-title title="Svi filmovi"/>
 
 <x-movie-list :$movies/>
